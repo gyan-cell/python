@@ -33,6 +33,26 @@ class rotateIp:
         if self.ipList.__len__() < 3:
             print("Not enough proxies , The operation will be terminated")
         else:
-            proxy = random.choice(self.ipList)
-            print(proxy)
-            return proxy
+            try:
+                while True:
+                    for i in range(self.ipList.__len__()):
+                        time.sleep(2)
+                        proxy = random.choice(self.ipList)
+                        print(proxy)
+
+            except Exception as e:
+                print(e)
+
+
+def main():
+    rotator = rotateIp()
+    rotator.generateIpList()
+
+    try:
+        getCurrentIp()
+        rotator.generateRandomIp()
+    except Exception as e:
+        print(e)
+
+
+main()
